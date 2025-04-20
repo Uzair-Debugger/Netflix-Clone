@@ -1,0 +1,576 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+
+body {
+    background: linear-gradient(rgb(56, 46, 46), black);
+    overflow-x: hidden;
+}
+
+.main {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    top: 0;
+
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 3vh 5vw;
+    box-shadow: inset 0px 50px 25px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    top: 0;
+}
+
+.nav button {
+    padding: 0px 10px;
+    font-size: 14px;
+    height: 33px;
+    /* background-color: white; */
+    border-radius: 30px;
+    border: none;
+    font-weight: bold;
+    font-family: "Poppins";
+    /* transition: all 0.5s ease; */
+
+    /* ////// */
+    position: relative;
+    background: linear-gradient(to left, red 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: left;
+    transition: all 0.3s ease-out;
+    color: black;
+    cursor: pointer;
+}
+.nav button:hover {
+    background-position: right;
+    color: white;
+}
+.nav button a{
+    color: black;
+    text-decoration: none;
+}
+
+.nav img {
+    width: 140px;
+}
+
+.background-video {
+    width: 89vw;
+    height: 80%;
+    margin: auto;
+    overflow-x: auto;
+    object-fit: cover;
+    /* object-position: center; */
+    display: flex;
+    align-items: flex-end;
+    /* justify-content: center; */
+    
+    border-radius: 20px;
+    box-shadow: 20px 20px 50px 10px pink inset;
+    position: relative;
+}
+
+
+.background-video img{
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    z-index: 1;
+    object-position: center;
+    object-fit: fill;
+    display: none;
+}
+.background-video img.display{
+    display: block;
+}
+
+.intro {
+    position: absolute;
+    text-align: center;
+    padding: 0 6vw;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.h {
+    font-size: 2.5rem;
+    font-weight: 900;
+    position: relative;
+    width: 100%;
+    bottom: 0px;
+    z-index: 2;
+}
+
+.Get-Started-btn {
+    padding: 5px 10px;
+    font-weight: 600;
+    background-color: red;
+    width: 160px;
+    border-radius: 20px;
+    border: none;
+    font-size: 1.1rem;
+    color: #fff;
+    margin: 20px 0;
+    z-index: 2;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.Get-Started-btn:hover {
+    transform: translateY(-4px);
+}
+
+.shadow {
+    width: 100%;
+    height: 0px;
+    opacity: .9;
+    z-index: 2;
+    box-shadow: 0px 0px 100px 60px rgb(56, 46, 46);
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    position: absolute;
+    bottom: 270px;
+    content: "";
+}
+
+.background-video::before {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgb(0, 0, 0, .8);
+    position: absolute;
+    z-index: 1;
+}
+
+.intro p {
+    font-size: 20px;
+}
+
+
+
+/* ========================================================================== */
+.search-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px 5vw;
+    margin: 40px;
+    z-index: 2;
+    position: relative;
+
+}
+
+.search-box input {
+    width: 24vw;
+
+    height: 55px;
+    background-color: rgba(14, 14, 14, 0.486);
+    border: .5px solid gray;
+    color: white;
+}
+
+.search-box button,
+input {
+    margin: 0;
+    padding: 5px 10px;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    height: 55px;
+    font-size: 16px;
+}
+
+/* =========================================================== */
+
+/* =============== Movies List =================== */
+
+
+.column-heading {
+    color: white;
+    font-size: 26px;
+    width: 80vw;
+    margin: 20px auto;
+
+    font-weight: bold;
+
+}
+
+.column {
+    width: 80vw;
+
+    margin: auto;
+   
+    height: 250px;
+    margin-bottom: 50px;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    
+}
+
+.box {
+    object-fit: contain;
+    width: fit-content;
+    height: 250px;
+    margin: 0 10px;
+}
+
+.box img {
+    width: 150px;
+    height: 100%;
+    border-radius: 10px;
+}
+.change-slide-prev,.change-slide-next{
+    position: absolute;
+    font-size: 25px;
+    padding: 3px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    width: 40px;
+    height: 40px;    
+}
+.change-slide-prev:hover,.change-slide-next:hover{
+    background-color: rgb(190, 190, 190);
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.change-slide-prev{
+    left: 9.4%;
+    
+}
+.change-slide-next{
+    right: 8.4%;
+}
+
+.reason-box {
+    width: 275px;
+    height: 150px;
+    border-radius: 10px;
+    background-color: rgb(43, 41, 41);
+    margin: 0 5px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 20px;
+    transition: transform .5s ease;
+    position: relative;
+    /* Needed for absolute positioning of child elements */
+}
+
+.reason-box:hover {
+    transform: translateY(-8px);
+}
+
+.reason-box img {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 70px;
+    /* Adjust size as needed */
+    /* height: auto; */
+}
+
+.FAQ {
+    color: white;
+    /* transition: all 1s ease; */
+}
+
+.faq-heading {
+    font-size: 30px;
+    font-weight: 640;
+    width: 80vw;
+    margin: 30px auto;
+}
+
+.faqs {
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+.faqs,
+.ans {
+    position: relative;
+    background-color: rgb(43, 41, 41);
+    display: flex;
+    width: 80vw;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px auto;
+    padding: 1.45rem 1.6rem;
+    gap: 10px;
+    border: 2px solid rgb(14, 13, 13);
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.ans {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 1.6rem;
+    /* Ensures no space when hidden */
+    transition: max-height 0.1s ease-in-out, padding 0.2s ease-in-out;
+    border: none;
+}
+
+.ans.active {
+    max-height: 500px;
+    /* Large enough to fit content */
+    padding: 1.45rem 1.6rem;
+    /* Restores padding */
+}
+
+
+
+.view-detail {
+    float: right;
+    font-size: 35px;
+    font-weight: 200;
+    padding: 5px;
+    position: absolute;
+    right: 30px;
+    background: transparent;
+    border: none;
+    color: white;
+    transition: all .5s ease;
+    cursor: pointer;
+
+}
+
+.btn {
+    width: fit-content;
+    text-align: center;
+    color: white;
+    margin: 50px auto;
+}
+
+.btn button {
+    background-color: red;
+    border-radius: 20px;
+    font-size: 16px;
+    padding: 7px;
+    border: none;
+    color: white;
+    width: 140px;
+    height: 40px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    .view-detail:hover {
+        transform: scale(1.1);
+    }
+}
+
+.btn button:hover {
+    transform: translateY(-3px);
+}
+
+.footer {
+    width: 80vw;
+    margin: auto;
+}
+
+.footer p {
+    margin: 20px 0;
+    color: rgb(160, 154, 154);
+}
+
+.footer a {
+    color: rgb(160, 154, 154);
+}
+
+.footer tr {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.footer td {
+    padding: 7px 10px;
+    flex: 1 1 25%;
+    text-align: left;
+}
+
+#country {
+    margin: 20px 0;
+    color: rgb(160, 154, 154);
+    background: transparent;
+    width: 100px;
+    /* height: 30px; */
+    border-radius: 20px;
+    padding: 5px;
+}
+
+/* .footer {
+    display: flex;
+    justify-content: space-evenly;
+} */
+
+/* ========================================= */
+@media screen and (max-width: 930px) {
+    .h {
+        font-size: 25px;
+    }
+
+    .Get-Started-btn {
+        margin: 10px 0;
+    }
+
+    .intro p {
+        font-size: 16px;
+        z-index: 2;
+        opacity: .5;
+    }
+
+
+    .search-box {
+        margin: 20px 0;
+    }
+
+    .search-box input {
+        width: 45vw;
+    }
+
+    /* .intro{
+        bottom: 180px;
+    } */
+    .column:nth-child(6) {
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    .column-heading {
+        font-weight: normal;
+    }
+
+    .reason-box {
+        margin: 10px 0;
+        height: auto;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        font-weight: normal;
+    }
+
+
+    .reason-box img {
+        position: absolute;
+        bottom: 0;
+        right: 10px;
+        width: 50px;
+
+        top: 50%;
+        transform: translateY(-50%);
+
+    }
+
+    .faq-heading {
+        font-weight: normal;
+        font-size: 25px;
+    }
+
+    .faqs {
+        font-weight: normal;
+        font-size: 17px;
+    }
+
+    .footer td {
+        flex: 1 1 50%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .search-box input {
+        width: 90vw;
+    }
+
+    .search-box button {
+        height: 35px;
+    }
+
+    .reason-box {
+        padding: 20px 5px;
+        padding-right: 50px;
+        /* padding-bottom: 0; */
+    }
+
+
+    .box {
+        height: auto;
+    }
+
+    .footer td {
+        flex: 1 1 100%;
+    }
+
+    .faqs {
+        padding: 0.8rem 2rem;
+    }
+
+    .view-detail {
+        right: 10px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    
+}
+
+@media screen and (max-width: 450px) {
+    .background-video{
+        width: 95%;
+        height: 70%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-52.5%, -60%);
+    }
+    .main{
+        height: 90vh;
+    }
+    .search-box {  
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        margin: 10px auto;
+    }
+
+    .search-box input {
+        width: 80vw;
+        height: 40px;
+    }
+
+    .search-box button {
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .faqs {
+        height: auto;
+
+    }
+}
